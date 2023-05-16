@@ -1,0 +1,40 @@
+{% extends 'part/base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'pages/style.css' %}"> 
+    <title>Contact</title>
+</head>
+<body>
+
+<h1 style="font-family:'Times New Roman', Times, serif">How we can help you ! 🤗</h1>
+    <p style="font-family:'Times New Roman', Times, serif">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you 
+        within a matter of hours to help you.
+    </p>
+    <div class="container">
+        <form id="contact-form" name="contact-form" action="{% url 'contact' %}" method="POST">
+            {% csrf_token %}
+          <label for="fname">First Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name..">
+      
+          <label for="lname">Email</label>
+          <input type="text" id="email" name="email" placeholder="Your email..">
+      
+          <label for="country">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Your subject..">
+      
+          <label for="subject">Message</label>
+          <textarea id="massage" name="massage" placeholder="Write something.." style="height:200px"></textarea>
+          
+          <button style="background-color: #eeb0e4; color: rgb(15, 13, 13); border: 2px solid rgb(168, 81, 161); border-radius: 20px 10px; padding: 10px 20px;">Send</button>
+                    <script src="{% static 'pages/contact.js' %}"></script>
+        </form>
+      </div>
+</body>
+</html>
+{% endblock %} 
